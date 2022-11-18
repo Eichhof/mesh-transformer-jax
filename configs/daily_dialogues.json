@@ -28,6 +28,9 @@
   "val_set": {
     "triviaQA": "daily_dialogues.val.index"
   },
+  
+  "eval_harness_tasks": [
+  ],
 
   "val_batches": 79,
   "val_every": 10,

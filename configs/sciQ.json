@@ -28,6 +28,9 @@
   "val_set": {
     "triviaQA": "sciQ.val.index"
   },
+  
+  "eval_harness_tasks": [
+  ],
 
   "val_batches": 14,
   "val_every": 2,

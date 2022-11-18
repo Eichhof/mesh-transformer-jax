@@ -29,6 +29,9 @@
     "triviaQA": "triviaQA.val.index"
   },
   
+  "eval_harness_tasks": [
+  ],
+  
   "val_batches": 418,
   "val_every": 30,
   "ckpt_every": 72,

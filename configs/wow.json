@@ -28,6 +28,9 @@
   "val_set": {
     "triviaQA": "wow.val.index"
   },
+  
+  "eval_harness_tasks": [
+  ],
 
   "val_batches": 1103,
   "val_every": 80,

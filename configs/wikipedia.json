@@ -26,6 +26,9 @@
 
   "train_set": "wikipedia.train.index",
   "val_set": {},
+  
+  "eval_harness_tasks": [
+  ],
 
   "val_batches": 20,
   "val_every": 1000,

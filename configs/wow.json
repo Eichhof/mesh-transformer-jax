@@ -12,29 +12,29 @@
   "per_replica_batch": 1,
   "gradient_accumulation_steps": 16,
 
-  "warmup_steps": 63,
-  "anneal_steps": 570,
+  "warmup_steps": 62,
+  "anneal_steps": 558,
   "lr": 5e-5,
   "end_lr": 1e-5,
   "weight_decay": 0.1,
-  "total_steps": 633,
+  "total_steps": 620,
 
   "tpu_size": 8,
 
   "bucket": "einstein-bucket",
-  "model_dir": "finetune_dir_triviaQA",
+  "model_dir": "finetune_dir_wow",
 
-  "train_set": "triviaQA.train.index",
+  "train_set": "wow.train.index",
   "val_set": {
-    "triviaQA": "triviaQA.val.index",
+    "triviaQA": "wow.val.index",
   },
-  
-  "val_batches": 418,
-  "val_every": 30,
+
+  "val_batches": 1103,
+  "val_every": 80,
   "ckpt_every": 72,
   "keep_every": 72,
 
-  "name": "GPTJ_6B_triviaQA",
+  "name": "GPTJ_6B_wow",
   "wandb_project": "mesh-transformer-jax",
   "comment": ""
 }

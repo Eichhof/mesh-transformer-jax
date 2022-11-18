@@ -22,4 +22,4 @@ ftfy
 fastapi
 uvicorn
 lm_dataformat
-pathyv
+pathy

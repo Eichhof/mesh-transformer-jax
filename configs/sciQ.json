@@ -26,7 +26,7 @@
 
   "train_set": "sciQ.train.index",
   "val_set": {
-    "triviaQA": "sciQ.val.index",
+    "triviaQA": "sciQ.val.index"
   },
 
   "val_batches": 14,

@@ -9,7 +9,6 @@ chex==0.1.2
 dm-haiku==0.0.5
 git+https://github.com/EleutherAI/lm-evaluation-harness/
 ray[default]==1.4.1
-"jax[tpu]==0.2.16" -f https://storage.googleapis.com/jax-releases/libtpu_releases.html
 jaxlib==0.1.68
 Flask~=1.1.2
 cloudpickle~=1.3.0

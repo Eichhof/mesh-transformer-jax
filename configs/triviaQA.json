@@ -12,8 +12,8 @@
   "per_replica_batch": 1,
   "gradient_accumulation_steps": 16,
 
-  "warmup_steps": 63,
-  "anneal_steps": 570,
+  "warmup_steps": 60,
+  "anneal_steps": 573,
   "lr": 5e-5,
   "end_lr": 1e-5,
   "weight_decay": 0.1,
@@ -34,8 +34,8 @@
   
   "val_batches": 418,
   "val_every": 30,
-  "ckpt_every": 72,
-  "keep_every": 72,
+  "ckpt_every": 633,
+  "keep_every": 633,
 
   "name": "GPTJ_6B_triviaQA",
   "wandb_project": "mesh-transformer-jax",

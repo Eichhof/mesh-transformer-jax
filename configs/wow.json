@@ -12,8 +12,8 @@
   "per_replica_batch": 1,
   "gradient_accumulation_steps": 16,
 
-  "warmup_steps": 62,
-  "anneal_steps": 558,
+  "warmup_steps": 60,
+  "anneal_steps": 560,
   "lr": 5e-5,
   "end_lr": 1e-5,
   "weight_decay": 0.1,
@@ -26,16 +26,16 @@
 
   "train_set": "wow.train.index",
   "val_set": {
-    "triviaQA": "wow.val.index"
+    "wow": "wow.val.index"
   },
   
   "eval_harness_tasks": [
   ],
 
   "val_batches": 1103,
-  "val_every": 80,
-  "ckpt_every": 72,
-  "keep_every": 72,
+  "val_every": 30,
+  "ckpt_every": 620,
+  "keep_every": 620,
 
   "name": "GPTJ_6B_wow",
   "wandb_project": "mesh-transformer-jax",

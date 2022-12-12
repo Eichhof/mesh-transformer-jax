@@ -26,7 +26,7 @@
 
   "train_set": "daily_dialogues.train.index",
   "val_set": {
-    "triviaQA": "daily_dialogues.val.index"
+    "dailyDialogues": "daily_dialogues.val.index"
   },
   
   "eval_harness_tasks": [
@@ -34,8 +34,8 @@
 
   "val_batches": 79,
   "val_every": 10,
-  "ckpt_every": 50,
-  "keep_every": 50,
+  "ckpt_every": 162,
+  "keep_every": 162,
 
   "name": "GPTJ_6B_daily_dialogues",
   "wandb_project": "mesh-transformer-jax",

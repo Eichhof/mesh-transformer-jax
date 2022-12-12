@@ -1,0 +1,21 @@
+python create_finetune_tfrecords.py C:/Users/wrafael/Desktop/wikipedia.txt wikipedia --preserve-data-order
+
+
+https://cloud.google.com/tpu/docs/run-calculation-jax
+https://cloud.google.com/tpu/docs/preemptible
+
+1. gcloud compute tpus tpu-vm create gpt-jax --zone us-central1-a --accelerator-type v3-8 --version tpu-vm-base --preemptible
+
+2. gcloud compute tpus tpu-vm ssh gpt-jax --zone us-central1-a
+
+3. git clone https://github.com/Eichhof/mesh-transformer-jax.git
+
+4. pip install "jax[tpu]==0.2.16" -f https://storage.googleapis.com/jax-releases/libtpu_releases.html
+
+5. export TPU_LIBRARY_PATH=/home/wrafael/.local/lib/python3.8/site-packages/libtpu/libtpu.so
+https://github.com/google/jax/issues/13321
+
+6. cd mesh-transformer-jax
+pip install -r requirements.txt
+
+7. python3 device_train.py --config=configs/daily_dialogues.json --tune-model-path=gs://einstein-bucket/step_383500/

@@ -21,9 +21,11 @@ https://github.com/google/jax/issues/13321
 6. cd mesh-transformer-jax
 pip install -r requirements.txt
 
-7. python3 device_train.py --config=configs/daily_dialogues.json --tune-model-path=gs://einstein-bucket/step_383500/
+7. python3 device_train.py --config=configs/triviaQA.json --tune-model-path=gs://einstein-bucket/finetune_dir_wikipedia/step_23/
 
+python3 device_train.py --config=configs/daily_dialogues.json --tune-model-path=gs://einstein-bucket/finetune_dir_triviaQA/step_3276/
 
+python3 device_train.py --config=configs/wow.json --tune-model-path=gs://einstein-bucket/finetune_dir_triviaQA/step_3276/
 
 
 

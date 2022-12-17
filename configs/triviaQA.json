@@ -15,14 +15,14 @@
   "warmup_steps": 50,
   "anneal_steps": 565,
   "lr": 1e-5,
-  "end_lr": 0.000001,
+  "end_lr": 0.000002,
   "weight_decay": 0.1,
   "total_steps": 615,
 
   "tpu_size": 8,
 
   "bucket": "einstein-bucket",
-  "model_dir": "finetune_dir_triviaQA_2",
+  "model_dir": "finetune_dir_triviaQA_3",
 
   "train_set": "triviaQA.train.index",
   "val_set": {
@@ -37,7 +37,7 @@
   "ckpt_every": 615,
   "keep_every": 615,
 
-  "name": "GPTJ_6B_triviaQA",
+  "name": "GPTJ_6B_triviaQA3",
   "wandb_project": "mesh-transformer-jax",
   "comment": ""
 }

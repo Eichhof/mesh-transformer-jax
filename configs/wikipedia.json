@@ -14,15 +14,15 @@
 
   "warmup_steps": 2,
   "anneal_steps": 21,
-  "lr": 5e-5,
-  "end_lr": 1e-5,
+  "lr": 1e-5,
+  "end_lr": 0.000001,
   "weight_decay": 0.1,
   "total_steps": 23,
 
   "tpu_size": 8,
 
   "bucket": "einstein-bucket",
-  "model_dir": "finetune_dir_wikipedia",
+  "model_dir": "finetune_dir_wikipedia2",
 
   "train_set": "wikipedia.train.index",
   "val_set": {},
@@ -35,7 +35,7 @@
   "ckpt_every": 23,
   "keep_every": 23,
 
-  "name": "GPTJ_6B_wikipedia",
+  "name": "GPTJ_6B_wikipedia2",
   "wandb_project": "mesh-transformer-jax",
   "comment": ""
 }

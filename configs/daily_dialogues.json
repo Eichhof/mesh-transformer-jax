@@ -14,15 +14,15 @@
 
   "warmup_steps": 15,
   "anneal_steps": 143,
-  "lr": 1e-5,
-  "end_lr": 0.000001,
+  "lr": 5e-5,
+  "end_lr": 1e-5,
   "weight_decay": 0.1,
   "total_steps": 158,
 
   "tpu_size": 8,
 
   "bucket": "einstein-bucket",
-  "model_dir": "finetune_dir_daily_dialogues",
+  "model_dir": "finetune_dir_daily_dialogues2",
 
   "train_set": "daily_dialogues.train.index",
   "val_set": {
@@ -37,7 +37,7 @@
   "ckpt_every": 158,
   "keep_every": 158,
 
-  "name": "GPTJ_6B_daily_dialogues",
+  "name": "GPTJ_6B_daily_dialogues2",
   "wandb_project": "mesh-transformer-jax",
   "comment": ""
 }

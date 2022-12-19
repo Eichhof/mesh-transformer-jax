@@ -20,6 +20,7 @@ https://github.com/google/jax/issues/13321
 
 6. cd mesh-transformer-jax
 pip install -r requirements.txt
+(install newest version of google-cloud-storage in case of errors)
 
 7. python3 device_train.py --config=configs/wikipedia.json --tune-model-path=gs://einstein-bucket/step_383500/
 

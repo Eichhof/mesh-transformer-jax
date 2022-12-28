@@ -26,10 +26,17 @@ pip install -r requirements.txt
 
 python3 device_train.py --config=configs/triviaQA.json --tune-model-path=gs://einstein-bucket/finetune_dir_wikipedia2/step_23/
 
-python3 device_train.py --config=configs/daily_dialogues.json --tune-model-path=gs://einstein-bucket/finetune_dir_triviaQA/step_3276/
+python3 device_train.py --config=configs/daily_dialogues.json --tune-model-path=gs://einstein-bucket/finetune_dir_triviaQA/step_615/
 
-python3 device_train.py --config=configs/wow.json --tune-model-path=gs://einstein-bucket/finetune_dir_triviaQA/step_3276/
+python3 device_train.py --config=configs/wow.json --tune-model-path=gs://einstein-bucket/finetune_dir_triviaQA/step_615/
 
+
+
+
+gcloud compute tpus tpu-vm stop gpt-jax --zone us-central1-a
+gcloud compute tpus tpu-vm start gpt-jax --zone us-central1-a
+gcloud compute tpus tpu-vm delete gpt-jax --zone us-central1-a
+gcloud compute tpus tpu-vm list --zone europe-west4-a
 
 
 Transfer weights from bucket to NAS:

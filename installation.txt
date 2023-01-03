@@ -36,6 +36,8 @@ python3 device_train.py --config=configs/daily_dialogues.json --tune-model-path=
 
 python3 device_train.py --config=configs/wow.json --tune-model-path=gs://einstein-bucket/finetune_dir_triviaQA/step_615/
 
+python3 device_train.py --config=configs/einstein.json --tune-model-path=gs://einstein-bucket/finetune_dir_wow/step_610/
+
 
 
 

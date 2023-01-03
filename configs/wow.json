@@ -22,7 +22,7 @@
   "tpu_size": 8,
 
   "bucket": "einstein-bucket",
-  "model_dir": "finetune_dir_wow",
+  "model_dir": "finetune_dir_wow_no_triviaQA",
 
   "train_set": "wow.train.index",
   "val_set": {
@@ -37,7 +37,7 @@
   "ckpt_every": 610,
   "keep_every": 610,
 
-  "name": "GPTJ_6B_wow",
+  "name": "GPTJ_6B_wow_no_triviaQA",
   "wandb_project": "mesh-transformer-jax",
   "comment": ""
 }

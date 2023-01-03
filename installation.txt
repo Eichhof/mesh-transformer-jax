@@ -1,8 +1,14 @@
 https://github.com/Eichhof/mesh-transformer-jax/blob/master/howto_finetune.md
 
-
+*** Create TF records ***
 python create_finetune_tfrecords.py C:/Users/wrafael/Desktop/wikipedia.txt wikipedia --preserve-data-order
 
+
+*** Transfer weights ***
+Transfer weights to bucket: gsutil -m cp -R LOCAL_PATH_TO/step_383500 gs://YOUR-BUCKET
+
+
+*** Training on TPU ***
 
 https://cloud.google.com/tpu/docs/run-calculation-jax
 https://cloud.google.com/tpu/docs/preemptible
@@ -39,10 +45,14 @@ gcloud compute tpus tpu-vm delete gpt-jax --zone us-central1-a
 gcloud compute tpus tpu-vm list --zone europe-west4-a
 
 
+
+*** Transfer weights back ***
 Transfer weights from bucket to NAS:
 gsutil -m cp -r "gs://einstein-bucket/finetune_dir_triviaQA/step_633" \\inf.nas.ethz.ch\infk_grossm_project\digital_character\Rafael\gpt-j-6B
 
 
+
+*** Transformation of weights ***
 
 Transform weights on Cluster:
 # module load gcc/8.2.0 python/3.8.5
@@ -50,4 +60,4 @@ Transform weights on Cluster:
 pip install --user jax==0.2.12
 pip install --user -r requirements.txt
 
-sbatch -A ls_grossm -n 1 --time=4:00:00 --mem-per-cpu=150000 --wrap="python to_hf_weights.py --input-ckpt /nfs/inf.nas.ethz.ch/fs1201/infk_grossm_project/digital_character/Rafael/gpt-j-6B/step_633 --config ./configs/6B_roto_256.json --output-path /nfs/inf.nas.ethz.ch/fs1201/infk_grossm_project/digital_character/Rafael/gpt-j-6B/transformed --cpu --dtype fp16"
+sbatch -A ls_grossm -n 1 --time=4:00:00 --mem-per-cpu=150000 --wrap="python to_hf_weights.py --input-ckpt /nfs/inf.nas.ethz.ch/fs1201/infk_grossm_project/digital_character/Rafael/gpt-j-6B/finetune_dir_daily_dialogues/step_158 --config ./configs/6B_roto_256.json --output-path /nfs/inf.nas.ethz.ch/fs1201/infk_grossm_project/digital_character/Rafael/gpt-j-6B/finetune_dir_daily_dialogues/transformed --cpu --dtype fp16"

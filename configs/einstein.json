@@ -22,7 +22,7 @@
   "tpu_size": 8,
 
   "bucket": "einstein-bucket",
-  "model_dir": "finetune_dir_einstein3",
+  "model_dir": "finetune_dir_einstein7",
 
   "train_set": "einstein.train.index",
   "val_set": {
@@ -37,7 +37,7 @@
   "ckpt_every": 155,
   "keep_every": 155,
 
-  "name": "GPTJ_6B_einstein3",
+  "name": "GPTJ_6B_einstein7",
   "wandb_project": "mesh-transformer-jax",
   "comment": ""
 }

@@ -14,15 +14,15 @@
 
   "warmup_steps": 5,
   "anneal_steps": 47,
-  "lr": 5e-5,
-  "end_lr": 1e-5,
+  "lr": 1e-6,
+  "end_lr": 1e-7,
   "weight_decay": 0.1,
   "total_steps": 52,
 
   "tpu_size": 8,
 
   "bucket": "einstein-bucket",
-  "model_dir": "finetune_dir_einstein13",
+  "model_dir": "finetune_dir_einstein14",
 
   "train_set": "einstein.train.index",
   "val_set": {
@@ -37,7 +37,7 @@
   "ckpt_every": 52,
   "keep_every": 52,
 
-  "name": "GPTJ_6B_einstein13",
+  "name": "GPTJ_6B_einstein14",
   "wandb_project": "mesh-transformer-jax",
   "comment": ""
 }

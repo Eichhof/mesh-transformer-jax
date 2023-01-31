@@ -13,9 +13,12 @@ Transfer weights to bucket: gsutil -m cp -R LOCAL_PATH_TO/step_383500 gs://YOUR-
 https://cloud.google.com/tpu/docs/run-calculation-jax
 https://cloud.google.com/tpu/docs/preemptible
 
-1. gcloud compute tpus tpu-vm create gpt-jax --zone us-central1-a --accelerator-type v3-8 --version tpu-vm-base --preemptible
+0. pip3 install pyOpenSSL --upgrade
+   pip install -U google-cloud-storage
 
-2. gcloud compute tpus tpu-vm ssh gpt-jax --zone us-central1-a
+1. gcloud compute tpus tpu-vm create gpt-jax --zone europe-west4-a --accelerator-type v3-8 --version tpu-vm-base --preemptible
+
+2. gcloud compute tpus tpu-vm ssh gpt-jax --zone europe-west4-a
 
 3. git clone https://github.com/Eichhof/mesh-transformer-jax.git
 
@@ -26,7 +29,6 @@ https://github.com/google/jax/issues/13321
 
 6. cd mesh-transformer-jax
 pip install -r requirements.txt
-(install newest version of google-cloud-storage in case of errors)
 
 7. python3 device_train.py --config=configs/wikipedia.json --tune-model-path=gs://einstein-bucket/step_383500/
 
@@ -41,9 +43,9 @@ python3 device_train.py --config=configs/einstein.json --tune-model-path=gs://ei
 
 
 
-gcloud compute tpus tpu-vm stop gpt-jax --zone us-central1-a
-gcloud compute tpus tpu-vm start gpt-jax --zone us-central1-a
-gcloud compute tpus tpu-vm delete gpt-jax --zone us-central1-a
+gcloud compute tpus tpu-vm stop gpt-jax europe-west4-a
+gcloud compute tpus tpu-vm start gpt-jax europe-west4-a
+gcloud compute tpus tpu-vm delete gpt-jax europe-west4-a
 gcloud compute tpus tpu-vm list --zone europe-west4-a
 
 

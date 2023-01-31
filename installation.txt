@@ -14,7 +14,6 @@ https://cloud.google.com/tpu/docs/run-calculation-jax
 https://cloud.google.com/tpu/docs/preemptible
 
 0. pip3 install pyOpenSSL --upgrade
-   pip install -U google-cloud-storage
 
 1. gcloud compute tpus tpu-vm create gpt-jax --zone europe-west4-a --accelerator-type v3-8 --version tpu-vm-base --preemptible
 
@@ -30,7 +29,9 @@ https://github.com/google/jax/issues/13321
 6. cd mesh-transformer-jax
 pip install -r requirements.txt
 
-7. python3 device_train.py --config=configs/wikipedia.json --tune-model-path=gs://einstein-bucket/step_383500/
+7. pip install -U google-cloud-storage
+
+8. python3 device_train.py --config=configs/wikipedia.json --tune-model-path=gs://einstein-bucket/step_383500/
 
 python3 device_train.py --config=configs/triviaQA.json --tune-model-path=gs://einstein-bucket/finetune_dir_wikipedia2/step_23/
 

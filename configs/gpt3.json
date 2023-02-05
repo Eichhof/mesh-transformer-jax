@@ -24,7 +24,7 @@
   "bucket": "einstein-bucket",
   "model_dir": "finetune_dir_gpt8",
 
-  "train_set": "gpt3_1epoch.train.index",
+  "train_set": "gpt3.train.index",
   "val_set": {
     "GPT3": "gpt3.val.index"
   },

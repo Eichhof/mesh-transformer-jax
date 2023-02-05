@@ -13,11 +13,11 @@
   "gradient_accumulation_steps": 16,
 
   "warmup_steps": 20,
-  "anneal_steps": 210,
+  "anneal_steps": 224,
   "lr": 5e-5,
   "end_lr": 1e-5,
   "weight_decay": 0.1,
-  "total_steps": 230,
+  "total_steps": 244,
 
   "tpu_size": 8,
 
@@ -32,12 +32,12 @@
   "eval_harness_tasks": [
   ],
 
-  "val_batches": 141,
+  "val_batches": 140,
   "val_every": 5,
-  "ckpt_every": 230,
-  "keep_every": 230,
+  "ckpt_every": 244,
+  "keep_every": 244,
 
-  "name": "GPTJ_6B_gpt",
+  "name": "GPTJ_6B_gpt2",
   "wandb_project": "mesh-transformer-jax",
   "comment": ""
 }

@@ -1,4 +1,6 @@
 https://github.com/Eichhof/mesh-transformer-jax/blob/master/howto_finetune.md
+https://cloud.google.com/tpu/docs/run-calculation-jax
+https://cloud.google.com/tpu/docs/preemptible
 
 *** Create TF records ***
 python create_finetune_tfrecords.py C:/Users/wrafael/Desktop/wikipedia.txt wikipedia --preserve-data-order
@@ -44,9 +46,9 @@ python3 device_train.py --config=configs/einstein.json --tune-model-path=gs://ei
 
 
 
-gcloud compute tpus tpu-vm stop gpt-jax europe-west4-a
-gcloud compute tpus tpu-vm start gpt-jax europe-west4-a
-gcloud compute tpus tpu-vm delete gpt-jax europe-west4-a
+gcloud compute tpus tpu-vm stop gpt-jax --zone europe-west4-a
+gcloud compute tpus tpu-vm start gpt-jax --zone europe-west4-a
+gcloud compute tpus tpu-vm delete gpt-jax --zone europe-west4-a
 gcloud compute tpus tpu-vm list --zone europe-west4-a
 
 

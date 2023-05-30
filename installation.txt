@@ -43,6 +43,7 @@ python3 device_train.py --config=configs/wow.json --tune-model-path=gs://einstei
 
 python3 device_train.py --config=configs/einstein.json --tune-model-path=gs://einstein-bucket/finetune_dir_wow/step_610/
 
+python3 device_train.py --config=configs/gpt3.json --tune-model-path=gs://einstein-bucket/step_383500/
 
 
 

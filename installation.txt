@@ -3,7 +3,7 @@ https://cloud.google.com/tpu/docs/run-calculation-jax
 https://cloud.google.com/tpu/docs/preemptible
 
 *** Create TF records ***
-python create_finetune_tfrecords.py C:/Users/wrafael/Desktop/wikipedia.txt wikipedia --preserve-data-order
+python create_finetune_tfrecords.py C:/Users/wrafael/Desktop/gpt3_train/gpt3_train.tar.gz gpt3-train --min-unique-tokens 200 --n-repack-epochs 3
 
 
 *** Transfer weights ***
@@ -68,3 +68,5 @@ pip install --user jax==0.2.12
 pip install --user -r requirements.txt
 
 sbatch -A ls_grossm -n 1 --time=4:00:00 --mem-per-cpu=150000 --wrap="python to_hf_weights.py --input-ckpt /nfs/inf.nas.ethz.ch/fs1201/infk_grossm_project/digital_character/Rafael/gpt-j-6B/finetune_dir_daily_dialogues/step_158 --config ./configs/6B_roto_256.json --output-path /nfs/inf.nas.ethz.ch/fs1201/infk_grossm_project/digital_character/Rafael/gpt-j-6B/finetune_dir_daily_dialogues/transformed --cpu --dtype fp16"
+
+sbatch -A ls_grossm -n 1 --time=4:00:00 --gpus=1 --gres=gpumem:20G --mem-per-cpu=100000 --wrap="python optimum.exporters.onnx --atol=1e-4 --for-ort --fp16 --device cuda --task causal-lm-with-past --model /nfs/inf.nas.ethz.ch/fs1201/infk_grossm_project/digital_character/Rafael/gpt-j-6B/finetune_dir_einstein2/transformed /nfs/inf.nas.ethz.ch/fs1201/infk_grossm_project/digital_character/Rafael/gpt-j-6B/finetune_dir_einstein2/gptj_onnx/"

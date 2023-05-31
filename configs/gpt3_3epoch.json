@@ -24,7 +24,7 @@
   "bucket": "einstein-bucket",
   "model_dir": "finetune_dir_gpt9",
 
-  "train_set": "gpt3.train.index",
+  "train_set": "gpt3_3epoch.train.index",
   "val_set": {
     "GPT3": "gpt3.val.index"
   },
@@ -34,8 +34,8 @@
 
   "val_batches": 137,
   "val_every": 5,
-  "ckpt_every": 78,
-  "keep_every": 78,
+  "ckpt_every": 234,
+  "keep_every": 234,
 
   "name": "GPTJ_6B_gpt9",
   "wandb_project": "mesh-transformer-jax",

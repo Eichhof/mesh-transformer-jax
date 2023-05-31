@@ -34,8 +34,8 @@
 
   "val_batches": 137,
   "val_every": 5,
-  "ckpt_every": 234,
-  "keep_every": 234,
+  "ckpt_every": 77,
+  "keep_every": 77,
 
   "name": "GPTJ_6B_gpt9",
   "wandb_project": "mesh-transformer-jax",

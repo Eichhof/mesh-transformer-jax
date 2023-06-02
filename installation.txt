@@ -15,42 +15,84 @@ Transfer weights to bucket: gsutil -m cp -R LOCAL_PATH_TO/step_383500 gs://YOUR-
 https://cloud.google.com/tpu/docs/run-calculation-jax
 https://cloud.google.com/tpu/docs/preemptible
 
-0. pip3 install pyOpenSSL --upgrade
+pip3 install pyOpenSSL --upgrade
 
-1. gcloud compute tpus tpu-vm create gpt-jax --zone europe-west4-a --accelerator-type v3-8 --version tpu-vm-base --preemptible
-
-2. gcloud compute tpus tpu-vm ssh gpt-jax --zone europe-west4-a
-
-3. git clone https://github.com/Eichhof/mesh-transformer-jax.git
-
-4. pip install "jax[tpu]==0.2.16" -f https://storage.googleapis.com/jax-releases/libtpu_releases.html
-
-5. export TPU_LIBRARY_PATH=/home/wrafael/.local/lib/python3.8/site-packages/libtpu/libtpu.so
-https://github.com/google/jax/issues/13321
-
-6. cd mesh-transformer-jax
-pip install -r requirements.txt
-
-7. pip install -U google-cloud-storage
-
-8. python3 device_train.py --config=configs/wikipedia.json --tune-model-path=gs://einstein-bucket/step_383500/
-
-python3 device_train.py --config=configs/triviaQA.json --tune-model-path=gs://einstein-bucket/finetune_dir_wikipedia2/step_23/
-
-python3 device_train.py --config=configs/daily_dialogues.json --tune-model-path=gs://einstein-bucket/finetune_dir_triviaQA/step_615/
-
-python3 device_train.py --config=configs/wow.json --tune-model-path=gs://einstein-bucket/finetune_dir_triviaQA/step_615/
-
-python3 device_train.py --config=configs/einstein.json --tune-model-path=gs://einstein-bucket/finetune_dir_wow/step_610/
-
-python3 device_train.py --config=configs/gpt3.json --tune-model-path=gs://einstein-bucket/step_383500/
-
-
+gcloud compute tpus tpu-vm create gpt-jax --zone europe-west4-a --accelerator-type v3-8 --version tpu-vm-base --preemptible
+gcloud compute tpus tpu-vm ssh gpt-jax --zone europe-west4-a
 
 gcloud compute tpus tpu-vm stop gpt-jax --zone europe-west4-a
 gcloud compute tpus tpu-vm start gpt-jax --zone europe-west4-a
 gcloud compute tpus tpu-vm delete gpt-jax --zone europe-west4-a
 gcloud compute tpus tpu-vm list --zone europe-west4-a
+
+
+*** Installation on TPU (old) ***
+
+1. git clone https://github.com/Eichhof/mesh-transformer-jax.git
+
+2. pip install "jax[tpu]==0.2.16" -f https://storage.googleapis.com/jax-releases/libtpu_releases.html
+
+3. export TPU_LIBRARY_PATH=/home/wrafael/.local/lib/python3.8/site-packages/libtpu/libtpu.so
+https://github.com/google/jax/issues/13321
+
+4. cd mesh-transformer-jax
+pip install -r requirements.txt
+
+5. pip install -U google-cloud-storage
+
+
+*** Installation on TPU ***
+
+https://github.com/kingoflolz/mesh-transformer-jax/issues/246
+
+-- First, Install conda on the TPU vm
+mkdir conda_install
+cd conda_install
+sudo apt-get update
+sudo apt-get install wget
+wget https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh
+bash Anaconda3-2022.10-Linux-x86_64.sh
+
+-- Update path to include conda
+export PATH=~/anaconda3/bin:$PATH
+
+-- Create env with mamba and python == 3.8
+conda create -n gpt -c conda-forge mamba python==3.8
+
+-- Close and reopen terminal, ressh
+gcloud compute tpus tpu-vm ssh YOUR_TPU_NAME --zone YOUR_ZONE_NAME
+
+-- Leave base
+conda deactivate 
+
+-- Enter env
+conda activate gpt
+
+-- Install requirements available through conda first
+mamba install -c conda-forge numpy==1.19.5 tqdm==4.45.0 einops==0.3.0 requests==2.25.1 fabric==2.6.0 optax==0.0.9 dm-haiku==0.0.5 jax==0.2.18 cloudpickle==1.3.0 tensorflow-cpu==2.6.0 google-cloud-storage==1.36.2 transformers==4.16.2 smart_open==5.2.1 ftfy==6.1.1 pathy==0.10.1 func_timeout==4.3.5
+
+-- Install remaining requirements not available through conda with pip
+pip install ray[default]==1.4.1 wandb==0.13.7 chex==0.0.5 lm-dataformat==0.0.20 typing-extensions==4.2.0 protobuf==3.19.5
+
+-- NOTE: You will see a typing-extensions error pop up about tensorflow 2.6.0 not being compatible with 4.2.0. This is fine, ignore it.
+
+-- Jax 0.2.12 does NOT WORK with TPUs anymore, but we can use 0.2.18 or 0.2.20
+pip install "jax[tpu]==0.2.20" -f https://storage.googleapis.com/jax-releases/libtpu_releases.html
+
+-- If you have issues with protobuf (may originate from the import wandb call), run this
+python3 -m pip uninstall protobuf
+python3 -m pip install protobuf==3.19.5
+
+
+
+*** Training on TPU ***
+
+python3 device_train.py --config=configs/wikipedia.json --tune-model-path=gs://einstein-bucket/step_383500/
+python3 device_train.py --config=configs/triviaQA.json --tune-model-path=gs://einstein-bucket/finetune_dir_wikipedia2/step_23/
+python3 device_train.py --config=configs/daily_dialogues.json --tune-model-path=gs://einstein-bucket/finetune_dir_triviaQA/step_615/
+python3 device_train.py --config=configs/wow.json --tune-model-path=gs://einstein-bucket/finetune_dir_triviaQA/step_615/
+python3 device_train.py --config=configs/einstein.json --tune-model-path=gs://einstein-bucket/finetune_dir_wow/step_610/
+python3 device_train.py --config=configs/gpt3.json --tune-model-path=gs://einstein-bucket/step_383500/
 
 
 

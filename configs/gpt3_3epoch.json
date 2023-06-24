@@ -13,16 +13,16 @@
   "gradient_accumulation_steps": 16,
 
   "warmup_steps": 19,
-  "anneal_steps": 215,
+  "anneal_steps": 214,
   "lr": 5e-5,
   "end_lr": 1e-5,
   "weight_decay": 0.1,
-  "total_steps": 234,
+  "total_steps": 233,
 
   "tpu_size": 8,
 
   "bucket": "einstein-bucket",
-  "model_dir": "finetune_dir_gpt11",
+  "model_dir": "finetune_dir_gpt12",
 
   "train_set": "gpt3_3epoch.train.index",
   "val_set": {
@@ -32,12 +32,12 @@
   "eval_harness_tasks": [
   ],
 
-  "val_batches": 137,
+  "val_batches": 136,
   "val_every": 5,
-  "ckpt_every": 77,
-  "keep_every": 77,
+  "ckpt_every": 233,
+  "keep_every": 233,
 
-  "name": "GPTJ_6B_gpt11",
+  "name": "GPTJ_6B_gpt12",
   "wandb_project": "mesh-transformer-jax",
   "comment": ""
 }

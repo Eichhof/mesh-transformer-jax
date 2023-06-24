@@ -17,6 +17,7 @@ https://cloud.google.com/tpu/docs/preemptible
 
 pip3 install pyOpenSSL --upgrade
 
+zones: europe-west4-a, us-central1-f, us-central1-a, us-central1-b
 gcloud compute tpus tpu-vm create gpt-jax --zone europe-west4-a --accelerator-type v3-8 --version tpu-vm-base --preemptible
 gcloud compute tpus tpu-vm ssh gpt-jax --zone europe-west4-a
 

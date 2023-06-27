@@ -15,14 +15,14 @@
   "warmup_steps": 19,
   "anneal_steps": 214,
   "lr": 1e-5,
-  "end_lr": 1e-6,
+  "end_lr": 0.000002,
   "weight_decay": 0.1,
   "total_steps": 233,
 
   "tpu_size": 8,
 
   "bucket": "einstein-bucket",
-  "model_dir": "finetune_dir_gpt15",
+  "model_dir": "finetune_dir_gpt16",
 
   "train_set": "gpt3_3epoch.train.index",
   "val_set": {
@@ -37,7 +37,7 @@
   "ckpt_every": 233,
   "keep_every": 233,
 
-  "name": "GPTJ_6B_gpt15",
+  "name": "GPTJ_6B_gpt16",
   "wandb_project": "mesh-transformer-jax",
   "comment": ""
 }
